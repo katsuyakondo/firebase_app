@@ -1,0 +1,45 @@
+body{
+    background-color: #7494C0;
+}
+
+h1{
+    background: #273246;
+        padding: 10px;
+        text-align: center;
+        font-size: 150%;
+        color: #ffffff;
+    }
+
+ 
+ fieldset{
+    width: auto;
+ } 
+
+button{
+    background-color: #298737;
+    border-radius: 10%;
+    font-size: 24px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    
+}
+
+ul{
+    list-style-type: none;
+  
+}
+
+ li{
+    width: auto;
+    background-color:#8DE055;
+ }
+  
+  img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+
+

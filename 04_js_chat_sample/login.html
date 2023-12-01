@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id ="login">ログイン</button>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script type="module">
+  // Import the functions you need from the SDKs you need
+            import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            import {
+               getAuth,signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged 
+           } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+            apiKey: "AIzaSyBP3zT2E2rYCbHDXgJBYwQZ7tepzTg8lSQ",
+            authDomain: "chat-20231125-4d0ca.firebaseapp.com",
+            projectId: "chat-20231125-4d0ca",
+            storageBucket: "chat-20231125-4d0ca.appspot.com",
+            messagingSenderId: "107885059980",
+            appId: "1:107885059980:web:d630d1b476c2314872c0a9"
+  };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+//googleAuth(認証用)
+const provider = new GoogleAuthProvider();
+provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+const auth =getAuth();
+
+
+
+    $("#login").on("click",function(){
+        signInWithPopup(auth,provider).then((result) =>{
+            location.href = "chatapp.html";
+        }).catch((error) =>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+        });
+        
+    });
+
+</script>
+</html>
